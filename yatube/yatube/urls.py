@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-
+app_name = 'posts'
 urlpatterns = [
     # импорт правил из приложения posts
     path('', include('posts.urls')),
     path('admin/', admin.site.urls),
+    path('', include('posts.urls', namespace='home_posts')),
 ]
